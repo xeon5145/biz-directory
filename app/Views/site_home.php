@@ -1,5 +1,5 @@
 <!-- Header -->
-<nav class="top-3 left-3 right-3 sticky flex flex-row justify-between gap-4 ml-5 mr-5">
+<nav class="sticky relative top-4 flex flex-row justify-between gap-4 ml-5 mr-5">
     <div class="w-1/3 flex justify-start">
         <p class="text-3xl self-center" title="Biz Dir">BD</p>
     </div>
@@ -17,7 +17,7 @@
 <!-- Header -->
 
 <!-- Main Page -->
-<div class="min-h-screen bg-gradient-to-b from-blue-50 to-white py-16 px-4 sm:px-6 lg:px-8">
+<div class="min-h-screen py-16 px-4 sm:px-6 lg:px-8">
     <div class="max-w-7xl mx-auto">
         <!-- Hero Section -->
         <div class="text-center">

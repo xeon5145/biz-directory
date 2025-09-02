@@ -1,9 +1,11 @@
 :root {
     --color-primary: #eeeeee;
-    --color-secondary: #00ff00;
-    --color-tertiary: #0000ff;
+    --color-tertiary: #f0f6ff; 
+    
+    --primary-gradient: linear-gradient(to-right, var(--color-primary), var(--color-tertiary));
 }
 
+
 body {
-   background-color: var(--color-primary);
+   background-color: var(--primary-gradient);
 }
