@@ -8,4 +8,8 @@ class UserAuthController extends BaseController
     {
         return mainView('user-authentication/main');
     }
+
+    public function login() {
+       var_dump($_POST);
+    }
 }

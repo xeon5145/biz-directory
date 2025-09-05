@@ -8,6 +8,6 @@ use CodeIgniter\Router\RouteCollection;
 $routes->get('/', 'Home::index');
 
 // Authentication
-$routes->get('/login', 'UserAuthController::index');
-
+$routes->get('/auth', 'UserAuthController::index');
+$routes->post('/login', 'UserAuthController::login');
 // Authentication

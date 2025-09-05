@@ -17,11 +17,18 @@
 <!-- Header -->
 
 <!-- Main Page -->
-<div class="flex min-h-screen item-center justify-center">
-    <div class="w-1/3 mt-20 flex justify-center">
+<div class="flex min-h-screen item-center justify-center w-full">
+    <div class="flex justify-center">
        <!-- Card -->
-       <div class="card_frame border border-gray-200 rounded-lg p-4 min-h-12">
+       <div class="card_frame border border-gray-200 rounded-lg p-4 h-1/3 w-1/3 self-center">
            <p>Login</p>
+           <label for="username">Username</label>
+           <input type="text" name="username" id="username" placeholder="Username">
+           <label for="password">Password</label>
+           <input type="password" name="password" id="password" placeholder="Password">
+           <button type="submit" onclick="login()">Login</button><br>
+
+           <span>Don't have an account?</span> <a href="/register">Register</a>
        </div>
        <!-- Card -->
     </div>
@@ -35,3 +42,24 @@
     </p>
 </footer>
 <!-- Footer -->
+
+<script>
+
+    function login() {
+        // let key = '<?= getenv('FRONT_KEY') ?>';
+        let username = $('#username').val();
+        let password = $('#password').val();
+
+        $.ajax({
+            url: '/login',
+            type: 'POST',
+            data: {
+                username: username,
+                password: password
+            },
+            success: function (response) {
+                
+            }
+        });
+    }
+</script>
