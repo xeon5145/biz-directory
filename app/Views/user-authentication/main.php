@@ -26,7 +26,7 @@
            <input type="text" name="username" id="username" placeholder="Username">
            <label for="password">Password</label>
            <input type="password" name="password" id="password" placeholder="Password">
-           <button class="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-hidden focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none" type="submit" onclick="login()">Login</button><br>
+           <button class="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-hidden focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none" type="submit" onclick="login(this)">Login</button><br>
 
            <span>Don't have an account?</span> <a href="/register">Register</a>
        </div>
@@ -45,7 +45,8 @@
 
 <script>
 
-    function login() {
+    function login(element) {
+        $(element).html(spinner);
         // let key = '<?= getenv('FRONT_KEY') ?>';
         let username = $('#username').val();
         let password = $('#password').val();
@@ -58,7 +59,14 @@
                 password: password
             },
             success: function (response) {
-                
+                console.log(response);
+
+                $(element).html('Login');
+                if (response == 'false') {
+                    alert('Invalid credentials');
+                } else {
+                    redirect('/dashboard');
+                }
             }
         });
     }

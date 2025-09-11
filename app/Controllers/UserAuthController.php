@@ -24,7 +24,7 @@ class UserAuthController extends BaseController
 
         $user = $this->userModel->userAuth($username, $password);
 
-        echo ($user ? 'true' : 'false');
+        echo ($user ? $user : 'false');
         return;
 
     }

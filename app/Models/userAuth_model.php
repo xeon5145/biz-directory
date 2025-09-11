@@ -6,15 +6,19 @@ use CodeIgniter\Model;
 
 class userAuth_model extends Model
 {
-    protected $table = 'authentication';
+    protected $table = 'authentication as A';
 
     public function userAuth($username, $password) {
 
-       $user = $this->select('id,password')->where('username', $username)->first();
+       $user = $this->select('A.id,A.password,U.name as name')
+                ->join('users as U', 'A.id = U.id', 'left')
+                ->where('A.username', $username)
+                ->orWhere('A.email', $username)
+                ->first();
         
         if ($user) {
             if ($password == $user['password']) {
-                return true;
+                return $user['name'];
             }
         }
         return false;
