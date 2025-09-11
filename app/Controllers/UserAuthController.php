@@ -2,14 +2,30 @@
 
 namespace App\Controllers;
 
+use \App\Models\userAuth_model;
+
 class UserAuthController extends BaseController
 {
+    public $userModel;
+    public function __construct()
+    {
+        $this->userModel = new userAuth_model();
+    }
+
     public function index(): string
     {
         return mainView('user-authentication/main');
     }
 
     public function login() {
-       var_dump($_POST);
+      
+        $username = $this->request->getPost('username');
+        $password = $this->request->getPost('password');
+
+        $user = $this->userModel->userAuth($username, $password);
+
+        echo ($user ? 'true' : 'false');
+        return;
+
     }
 }
