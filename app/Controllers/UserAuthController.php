@@ -28,4 +28,9 @@ class UserAuthController extends BaseController
         return;
 
     }
+
+    public function dashboard() {
+        
+        return dashboardView('admin/dashboard');
+    }
 }

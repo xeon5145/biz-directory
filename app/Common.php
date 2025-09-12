@@ -76,11 +76,17 @@ if (! function_exists('dashboardView')) {
         $body = view($name, $data, $options);
 
         $layout =
-            "<div style='display:flex'>
-                <div>$sidebar</div>
-                <div style='flex-grow:1'>
-                $navbar
-                $body
+            "<div class='flex flex-col w-full h-screen'>
+                <div class='flex'>
+                    $navbar
+                </div>
+                <div class='flex h-screen'>
+                    <div class='w-1/6'>
+                        $sidebar
+                    </div>
+                    <div class='w-5/6 bg-gray-100'>
+                        <div class='m-5'>$body</div>
+                    </div>
                 </div>
             </div>";
 

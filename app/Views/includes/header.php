@@ -24,6 +24,11 @@
     <script src="<?php echo base_url('/assets/js/component.js'); ?>"></script>
     <!-- Support scripts -->
 
+    <!-- FontAwesome -->
+     <link rel="stylesheet" href="<?= base_url('/assets/fa-7/css/all.min.css'); ?>">
+     <script src="<?= base_url('/assets/fa-7/js/all.min.js'); ?>"></script>
+    <!-- FontAwesome -->
+
 </head>
 <body>
     

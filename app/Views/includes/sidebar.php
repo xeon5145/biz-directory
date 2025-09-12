@@ -1,4 +1,4 @@
-<div id="sidebar" class="sidebar-fixed position-fixed">
+<div id="sidebar" class="bg-gray-800 text-white">
 
     <a href="javascript:void(0)" class="sidebar-close-icon" onclick="closeSidebar()">
         <i class="fa-solid fa-xmark"></i>
@@ -7,7 +7,7 @@
     <div class="sidebar-content">
         <div class="list-group list-group-flush">
             <a href="#" class="list-group-item list-group-item-action" onclick="toggleCollapse('dashboard')">
-                <i class="fa-solid fa-gauge"></i> Dashboard
+            <i class="fa-solid fa-layer-group"></i> Dashboard
             </a>
             <div id="dashboard" class="collapse">
                 <a href="/dashboard" class="list-group-item list-group-item-action">
