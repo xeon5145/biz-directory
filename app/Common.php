@@ -77,7 +77,7 @@ if (! function_exists('dashboardView')) {
 
         $layout =
             "<div class='flex flex-col w-full h-screen'>
-                <div class='flex'>
+                <div class='flex shadow-xl'>
                     $navbar
                 </div>
                 <div class='flex h-screen'>
