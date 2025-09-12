@@ -1,4 +1,4 @@
-<div id="sidebar" class="bg-fuchsia-100 text-slate-800">
+<div id="sidebar" class="">
 
     <a href="javascript:void(0)" class="sidebar-close-icon" onclick="closeSidebar()">
         <i class="fa-solid fa-xmark"></i>
