@@ -1,11 +1,104 @@
-:root {
-    --color-primary: #eeeeee;
-    --color-tertiary: #f0f6ff; 
-    
-    --primary-gradient: linear-gradient(to-right, var(--color-primary), var(--color-tertiary));
-}
-
-
+/* System Theme */
 body {
-   background-color: var(--primary-gradient);
+    background-color: #eeeeee;
 }
+/* System Theme */
+
+/* Buttons */
+.btn {
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    border: none;
+    cursor: pointer;
+    background-color: #ffffff;
+    color: #444444;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-icon {
+    padding: 0.5rem 0.5rem;
+    border-radius: 0.5rem;
+    border: none;
+    cursor: pointer;
+    background-color: #ffffff;
+    color: #444444;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-primary {
+    background-color: #444444;
+    color: #ffffff;
+}
+
+.btn-secondary {
+    background-color: #ffffff;
+    color: #444444;
+}
+
+.btn-danger {
+    background-color: #ff4444;
+    color: #ffffff;
+}
+
+.btn-warning {
+    background-color: #ffcc00;
+    color: #ffffff;
+}
+
+.btn-success {
+    background-color: #44ff44;
+    color: #ffffff;
+}
+
+.btn-info {
+    background-color: #4444ff;
+    color: #ffffff;
+}
+
+.btn-light {
+    background-color: #ffffff;
+    color: #444444;
+}
+
+.btn-dark {
+    background-color: #444444;
+    color: #ffffff;
+}
+/* Buttons */
+
+/* Card */
+.card {
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+}
+/* Card */
+
+/* Utilities */
+.circle-1 {
+    border-radius: 100%;
+    height: 1rem;
+    width: 1rem;
+    border: none;
+}
+
+.circle-2 {
+    border-radius: 100%;
+    height: 2rem;
+    width: 2rem;
+    border: none;
+}
+
+.circle-3 {
+    border-radius: 100%;
+    height: 3rem;
+    width: 3rem;
+    border: none;
+}
+/* Utilities */
