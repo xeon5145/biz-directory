@@ -12,13 +12,6 @@
     <!-- Tailwind -->
     <script src="<?php echo base_url('/assets/js/tailwind.js'); ?>"></script>
     <!-- Tailwind -->
-    
-    <!-- Support scripts -->
-    <script src="<?php echo base_url('/assets/js/jquery.min.js'); ?>"></script>
-    <script src="<?php echo base_url('/assets/js/jquery.unobtrusive-ajax.min.js'); ?>"></script>
-    <script src="<?php echo base_url('/assets/js/common.js'); ?>"></script>
-    <script src="<?php echo base_url('/assets/js/component.js'); ?>"></script>
-    <!-- Support scripts -->
 
     <!-- FontAwesome -->
      <link rel="stylesheet" href="<?= base_url('/assets/fa-7/css/all.min.css'); ?>">

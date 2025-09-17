@@ -16,7 +16,7 @@
         <!-- Notifications and user menu section -->
         <div class="flex w-1/6 justify-end items-center gap-4">
             <i class="fa-solid fa-bell fa-lg btn-icon" id="notifications"></i>
-            <div class="btn flex flex-row gap-2">
+            <div class="btn flex flex-row gap-2 dropdown-btn" data-id="userMenu">
                 <div class="">
                     <img class="circle-2" src="https://images.unsplash.com/photo-1546443046-ed1ce6ffd1ab?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
                 </div>
@@ -24,7 +24,22 @@
                     <p class="text-base">Username</p>
                     <p class="text-xs">User Role</p>
                 </div>
+                
+                <div class="">
+                <i class="fa-solid fa-chevron-down"></i>
+                </div>
+
             </div>
+
+            <!-- Menu -->
+            <div id="userMenu" class="absolute mt-44 z-10 dropdown-menu">
+                <ul>
+                    <li>Profile</li>
+                    <li>Settings</li>
+                    <li>Logout</li>
+                </ul>
+            </div>
+            <!-- Menu -->
         </div>
         <!-- Notifications and user menu section -->
 
