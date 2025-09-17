@@ -32,11 +32,12 @@
             </div>
 
             <!-- Menu -->
-            <div id="userMenu" class="absolute mt-44 z-10 dropdown-menu">
+            <div id="userMenu" class="hidden">
                 <ul>
-                    <li>Profile</li>
-                    <li>Settings</li>
-                    <li>Logout</li>
+                    <li class="dropdown-item">Profile</li>
+                    <li class="dropdown-item">Settings</li>
+                    <hr class="hr-1 hr-primary">
+                    <li class="dropdown-item">Logout</li>
                 </ul>
             </div>
             <!-- Menu -->

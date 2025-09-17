@@ -26,7 +26,9 @@ $(document).ready(function () {
     // Hidding all menus
     $('.dropdown-btn').each(function () {
         let menuId = $(this).attr("data-id");
-        $(`#${menuId}`).hide();
+        let menuHeight = $(`#${menuId}`).height();
+        
+        $(`#${menuId}`).hide().addClass("hidden absolute dropdown-menu z-999 mt-" + menuHeight);
     });
     // Hidding all menus
 });

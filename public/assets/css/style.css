@@ -90,6 +90,14 @@ body {
     z-index: 100;
     display: none;
 }
+
+.dropdown-item {
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    color: #444444;
+    align-content: center;
+    justify-content: center;
+}
 /* User Menu */
 
 /* Utilities */
@@ -112,5 +120,18 @@ body {
     height: 3rem;
     width: 3rem;
     border: none;
+}
+
+.hr-1 {
+    border: none;
+    border-top: 1px solid;
+}
+
+.hr-primary {
+    border-color: #d8d8d8;
+}
+
+.hr-secondary {
+    border-color: #ffffff;
 }
 /* Utilities */
