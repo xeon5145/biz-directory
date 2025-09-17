@@ -14,8 +14,8 @@
     <!-- Tailwind -->
 
     <!-- FontAwesome -->
-     <link rel="stylesheet" href="<?= base_url('/assets/fa-7/css/all.min.css'); ?>">
-     <script src="<?= base_url('/assets/fa-7/js/all.min.js'); ?>"></script>
+     <link rel="stylesheet" href="<?= base_url('/assets/icons/fa-7/css/all.min.css'); ?>">
+     <script src="<?= base_url('/assets/icons/fa-7/js/all.min.js'); ?>"></script>
     <!-- FontAwesome -->
 
     <!-- Support scripts -->
