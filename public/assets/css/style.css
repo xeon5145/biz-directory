@@ -1,7 +1,15 @@
-/* System Theme */
+@font-face {
+    font-family: 'Inter';
+    src: url('../fonts/Inter/Inter-VariableFont_opsz,wght.ttf') format('truetype-variations');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
+
 body {
     background-color: #f8f8f8;
-    color: rgb(204, 0, 204);
+    color: #4d4d4d;
+    font-family: 'Inter', sans-serif;
 }
 /* System Theme */
 
@@ -41,8 +49,8 @@ body {
 }
 
 .btn-danger {
-    background-color: #ff4444;
-    color: #ffffff;
+    background-color: #d82e2e !important;
+    color: #ffffff !important;
 }
 
 .btn-warning {
@@ -87,19 +95,61 @@ body {
     background-color: #ffffff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     border-radius: 0.5rem;
-    padding: 1rem;
+    padding: 0rem 1rem;
     z-index: 100;
-    display: none;
+    display: hidden;
+    justify-content: center;
 }
 
 .dropdown-item {
+    display: flex;
     padding: 0.5rem 1rem;
+    margin-top: 0.2rem;
+    margin-bottom: 0.2rem;
     cursor: pointer;
     color: #444444;
-    align-content: center;
+    align-items: center;
     justify-content: center;
+    border-radius: 0.5rem;
+    transition: all 0.2s ease-in-out;
+}
+
+.dropdown-item:hover {
+    background-color: #e0e0e0;
 }
 /* User Menu */
+
+/* Sidebar */
+.sidebar-menu {
+    display: flex;
+    flex-direction: column;
+    margin-right: 1.2rem;
+}
+.sidebar-item {
+    display: flex;
+    padding: 0.5rem 1rem;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    color: #444444;
+    align-items: center;
+    justify-content: start;
+    border-radius: 0.5rem;
+    transition: all 0.2s ease-in-out;
+}
+
+.sidebar-item:hover {
+    background-color: #e0e0e0;
+}
+
+.sidebar-item-icon {
+    margin-right: 0.25rem;
+}
+
+.sidebar-item-text {
+    margin-left: 0.25rem;
+}
+
+/* Sidebar */
 
 /* Utilities */
 .circle-1 {
