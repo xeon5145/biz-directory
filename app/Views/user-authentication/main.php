@@ -16,36 +16,40 @@
 </nav>
 <!-- Header -->
 
-<!-- Main Page -->
-<div class="flex min-h-screen item-center justify-center w-full">
-    <div class="flex justify-center">
-        <!-- Card -->
-        <div class="card_frame border border-gray-200 rounded-lg p-4 h-1/3 w-1/3 self-center">
-            <p>Login</p>
-            <label for="username">Username</label>
-            <input type="text" name="username" id="username" placeholder="Username">
-            <label for="password">Password</label>
-            <input type="password" name="password" id="password" placeholder="Password">
-            <button class="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-hidden focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none" type="submit" onclick="login(this)">Login</button><br>
-
-            <span>Don't have an account?</span> <a href="<?= base_url('register') ?>">Register</a>
+<div class="flex justify-center w-full mt-40">
+    <!-- Card -->
+    <div class="card flex flex-col border border-gray-200 rounded-lg p-8 w-1/6 h-1/2">
+        <h2 class="text-2xl font-bold mb-4">Login</h2>
+        
+            <div class="mb-4">
+                <label for="username" class="block text-gray-700 font-bold mb-2">Username</label>
+                <input type="text" name="username" id="username" placeholder="Username" class="border border-gray-300 rounded-lg px-4 py-2 w-full">
+            </div>
+            <div class="mb-4">
+                <label for="password" class="block text-gray-700 font-bold mb-2">Password</label>
+                <div class="flex items-center gap-2">
+                    <input type="password" name="password" id="password" placeholder="Password" class="border border-gray-300 rounded-lg px-4 py-2 w-full">
+                    <i id="password-icon" onclick="togglePassword(this , 'password')" class="btn-icon fa-solid fa-eye-slash"></i>
+                </div>
+            </div>
+            <div class="flex justify-center">
+                <button type="submit" onclick="login(this)" class="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-hidden focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none">Login</button>
+                <button onclick="slideAlert('error', 'Title', 'Description')">Alert</button>
+            </div>
+        
+        <div class="mt-4">
+            <span class="text-gray-500">Don't have an account?</span> 
+            <a href="<?= base_url('register') ?>" class="text-blue-600 hover:underline">Register</a>
         </div>
-        <!-- Card -->
     </div>
-</div>
-<!-- Main Page -->
+    <!-- Card -->
 
-<!-- Footer -->
-<footer class="text-center px-2">
-    <p>
-        &copy; 2025 <a href="#" target="_blank" rel="noopener noreferrer" class="text-blue-600 decoration-2 hover:underline focus:outline-hidden focus:underline">Almighty</a>. All rights reserved.
-    </p>
-</footer>
-<!-- Footer -->
+</div>
 
 <script>
     function login(element) {
         $(element).html(spinner);
+        $(element).prop('disabled', true);
         let username = $('#username').val();
         let password = $('#password').val();
 
@@ -58,9 +62,11 @@
             },
             success: function(response) {
                 $(element).html('Login');
+                $(element).prop('disabled', false);
                 if (response == 'false') {
-                    alert('Invalid credentials');
+                    slideAlert('error', 'Invalid credentials', 'Please check your username and password');
                 } else {
+                    slideAlert('success', 'Login successful');
                     window.location.href = '<?= base_url('dashboard') ?>';
                 }
             }
