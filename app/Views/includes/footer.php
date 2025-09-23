@@ -1,5 +1,5 @@
 <!-- Alert Area -->
-<div class='absolute right-5 bottom-30 h-30 w-70 z-9999 overflow-hidden' id='system-alert-area'></div>
+<div class='absolute right-5 bottom-0 h-70 w-90 space-y-2 overflow-y-hidden z-9999 overflow-hidden' id='system-alert-area'></div>
 <!-- Alert Area -->
 
 <!-- Support scripts -->

@@ -11,6 +11,7 @@ body {
     color: #4d4d4d;
     font-family: 'Inter', sans-serif;
 }
+
 /* System Theme */
 
 /* Buttons */
@@ -38,9 +39,7 @@ body {
     align-items: center;
 }
 
-.btn-icon
-
-.btn-primary {
+.btn-icon .btn-primary {
     background-color: #444444;
     color: #ffffff;
 }
@@ -79,6 +78,7 @@ body {
     background-color: #444444;
     color: #ffffff;
 }
+
 /* Buttons */
 
 /* Card */
@@ -89,6 +89,41 @@ body {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     background-color: #ffffff;
 }
+
+@keyframes slideIn {
+    from {
+        transform: translateX(120%) scale(0.95);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0) scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOut {
+    from {
+        transform: translateX(0) scale(1);
+        opacity: 1;
+    }
+
+    to {
+        transform: translateX(120%) scale(0.95);
+        opacity: 0;
+    }
+}
+
+.notif-card {
+    animation: slideIn 0.3s ease forwards;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    pointer-events: auto;
+}
+
+.notif-card.hide {
+    animation: slideOut 0.3s ease forwards;
+}
+
 /* Card */
 
 /* User Menu */
@@ -119,6 +154,7 @@ body {
 .dropdown-item:hover {
     background-color: #e0e0e0;
 }
+
 /* User Menu */
 
 /* Sidebar */
@@ -127,6 +163,7 @@ body {
     flex-direction: column;
     margin-right: 1.2rem;
 }
+
 .sidebar-item {
     display: flex;
     padding: 0.5rem 1rem;
@@ -187,4 +224,5 @@ body {
 .hr-secondary {
     border-color: #ffffff;
 }
+
 /* Utilities */

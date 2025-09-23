@@ -64,43 +64,60 @@ const togglePassword = (element, id) => {
   }
 };
 
-const slideAlert = (type,title, description) => {
-  let currentTimeStamp = Date.now();
+// Notifcation Toast function
+function slideAlert(type, title, description) {
+  const id = `alert-${Date.now()}`;
 
-  let alertType = "";
-  switch (type) {
-    case "success":
-      alertType = "bg-green-500 text-white";
-      break;
-    case "error":
-      alertType = "bg-red-500 text-white";
-      break;
-    case "warning":
-      alertType = "bg-yellow-500 text-white";
-      break;
-    case "info":
-      alertType = "bg-blue-500 text-white";
-      break;
-    default:
-      alertType = "";
-      break;
-  }
+  const alertStyles = {
+    success: "bg-green-500 text-white",
+    error: "bg-red-500 text-white",
+    warning: "bg-yellow-400 text-black",
+    info: "bg-blue-500 text-white",
+  };
 
-  let component = `
-  <div class="absolute card ${alertType} min-h-20 min-w-70 z-[10000]" style="right: -20rem;" id="${currentTimeStamp}">
-    <div class="flex flex-col justify-center items-start">
-      <h2>${title}</h2>
-      <p>${description}</p>
+  const alertType = alertStyles[type] || alertStyles.info;
+
+  // Create notification element
+  const notif = document.createElement("div");
+  notif.id = id;
+  notif.className = `notif-card ${alertType} backdrop-blur-sm shadow-lg rounded-lg p-4 min-w-[18rem] max-w-sm`;
+  notif.innerHTML = `
+    <div class="flex justify-between items-start">
+      <div>
+        <h2 class="font-semibold">${title}</h2>
+        <p class="text-sm">${description}</p>
+      </div>
+      <button class="ml-3 font-bold">×</button>
     </div>
-  </div>`;
+  `;
 
-  $("#system-alert-area").append(component);
+  // Close button support
+  notif.querySelector("button").addEventListener("click", () => removeNotif(notif));
 
-  // Slide in and out
-  $(`#${currentTimeStamp}`)
-    .animate({ right: "0rem" }, 200)
-    .delay(2000)
-    .animate({ right: "-20rem" }, 200, function () {
-      $(this).remove();
-    });
-};
+  // Append to container
+  const container = document.getElementById("system-alert-area");
+  container.prepend(notif); // new one goes on top
+
+  // Rearrange stack
+  updateStack();
+
+  // Auto dismiss
+  setTimeout(() => removeNotif(notif), 4000);
+}
+
+function removeNotif(notif) {
+  notif.classList.add("hide");
+  notif.addEventListener("animationend", () => {
+    notif.remove();
+    updateStack();
+  });
+}
+
+function updateStack() {
+  const notifs = document.querySelectorAll("#system-alert-area .notif-card");
+  notifs.forEach((el, i) => {
+    el.style.transform = `translateY(${i * -10}px) scale(${1 - i * 0.05})`;
+    el.style.zIndex = 1000 - i; // top-most is highest z
+    el.style.opacity = `${1 - i * 0.15}`;
+  });
+}
