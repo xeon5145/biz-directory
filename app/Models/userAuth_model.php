@@ -6,22 +6,29 @@ use CodeIgniter\Model;
 
 class userAuth_model extends Model
 {
-    protected $table = 'authentication as A';
 
     public function userAuth($username, $password) {
 
-       $user = $this->select('A.id,A.password,U.name as name')
-                ->join('users as U', 'A.id = U.id', 'left')
-                ->where('A.username', $username)
-                ->orWhere('A.email', $username)
-                ->first();
-        
+        $builder = $this->db->table('authentication as A');
+        $builder->select('A.id, A.password, U.name as name');
+        $builder->join('users as U', 'A.id = U.id', 'left');
+        $builder->where('A.username', $username);
+        $builder->orWhere('A.email', $username);
+        $user = $builder->get()->getRow();
+
         if ($user) {
-            if ($password == $user['password']) {
-                return $user['name'];
+            if ($password == $user->password) {
+                return [
+                    'status' => 200,
+                    'message' => 'Login successful',
+                    'name' => $user->name
+                ];
             }
         }
-        return false;
+        return [
+            'status' => 400,
+            'message' => 'Invalid credentials'
+        ];
 
     }
 

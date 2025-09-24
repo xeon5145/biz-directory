@@ -1,3 +1,4 @@
+// ========================= Dropdown menu =========================
 // Handle dropdown menu
 $(document).on("click", ".dropdown-btn", function (e) {
   e.stopPropagation();
@@ -35,16 +36,13 @@ $(document).on("click", function (e) {
   }
 });
 
-// Day night switcher // Will work on this later
-// $("#theme-mode").click(function () {
-//   $(this).toggleClass("fa-moon fa-sun");
-// });
-
 // ready state function
 $(document).ready(function () {
   // Hide all menus initially
   $(".dropdown-menu").hide().addClass("hidden absolute");
 });
+// ========================= Dropdown menu =========================
+
 
 // System Functions
 $("#logout-button").click(function () {
@@ -52,6 +50,7 @@ $("#logout-button").click(function () {
   window.location.href = "/auth";
 });
 
+// Toggle Password
 const togglePassword = (element, id) => {
   const $input = $(`#${id}`);
   const elementId = $(element).attr("id");
@@ -63,6 +62,7 @@ const togglePassword = (element, id) => {
     $(`#${elementId}`).toggleClass("fa-eye-slash fa-eye");
   }
 };
+// Toggle Password
 
 // Notifcation Toast function
 function slideAlert(type, title, description) {

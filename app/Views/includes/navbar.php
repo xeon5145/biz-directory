@@ -16,7 +16,7 @@
         <!-- Notifications and user menu section -->
         <div class="flex w-2/6 justify-end items-center gap-4">
             <!-- <i class="fa-solid fa-sun fa-lg btn-icon" id="theme-mode"></i> -->
-            <i class="fa-solid fa-bell fa-lg btn-icon" id="notifications"></i>
+            <i class="fa-regular fa-bell btn-icon" id="notifications"></i>
 
             <div class="btn flex flex-row gap-2 dropdown-btn" data-id="userMenu">
                 <div class="">
@@ -40,7 +40,7 @@
                      Go Home
                 </a>
                 <hr class="hr-1 hr-primary">
-                <div class="dropdown-item">
+                <div class="dropdown-item-btn">
                     <button class="btn-icon btn-danger" id="logout-button"><i class="fa-solid fa-right-from-bracket"></i> Logout</button>
                 </div>
 

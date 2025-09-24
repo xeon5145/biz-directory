@@ -25,7 +25,7 @@ class UserAuthController extends BaseController
 
         $user = $this->userModel->userAuth($username, $password);
 
-        echo ($user ? $user : 'false');
+        echo json_encode($user);
         return;
     }
 

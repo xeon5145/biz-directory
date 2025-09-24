@@ -62,11 +62,14 @@
             success: function(response) {
                 $(element).html('Login');
                 $(element).prop('disabled', false);
-                if (response == 'false') {
-                    slideAlert('error', 'Invalid credentials', 'Please check your username and password');
-                } else {
-                    slideAlert('success', 'Login successful');
+
+                let data = JSON.parse(response);
+
+                if (data.status == 200) {
+                    slideAlert('success', 'Welcome ' + data.name , 'Login Successful');
                     window.location.href = '<?= base_url('dashboard') ?>';
+                } else {
+                    slideAlert('error', 'Invalid credentials', 'Please check your username and password');
                 }
             }
         });
