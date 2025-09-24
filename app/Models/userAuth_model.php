@@ -24,4 +24,31 @@ class userAuth_model extends Model
         return false;
 
     }
+
+    public function registerAccount($data)
+    {
+        $email = $data['email'];
+        $password = $data['password'];
+        
+
+        $user = $this->select('id')
+                    ->where('email', $email)
+                    ->first();
+        
+        if ($user) {
+            return [
+                'status' => 400,
+                'message' => 'User already registered'
+            ];
+        } else {
+            $this->save([
+                'email' => $email,
+                'password' => $password
+            ]);
+            return [
+                'status' => 200,
+                'message' => 'Please check your email for verification link'
+            ];
+        }
+    }
 }

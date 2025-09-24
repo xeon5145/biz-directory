@@ -17,8 +17,9 @@ class UserAuthController extends BaseController
         return mainView('user-authentication/main');
     }
 
-    public function login() {
-      
+    public function login()
+    {
+
         $username = $this->request->getPost('username');
         $password = $this->request->getPost('password');
 
@@ -26,11 +27,25 @@ class UserAuthController extends BaseController
 
         echo ($user ? $user : 'false');
         return;
-
     }
 
-    public function dashboard() {
-        
+    public function register(): string
+    {
+
+        return mainView('user-authentication/register');
+    }
+
+    public function registerAccount()
+    {
+
+        $status = $this->userModel->registerAccount($_POST);
+
+        echo json_encode($status);
+    }
+
+    public function dashboard()
+    {
+
         return dashboardView('admin/dashboard');
     }
 }
