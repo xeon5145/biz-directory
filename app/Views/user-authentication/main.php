@@ -37,7 +37,7 @@
         </div>
 
         <div class="mt-4">
-            <a href="<?= base_url('register') ?>" class="text-blue-600 hover:underline">Forgot Password</a>
+            <a href="<?= base_url('register') ?>" class="text-blue-600 hover:underline">Forgot Password?</a>
         </div>
         <div class="mt-1">
             <span class="text-gray-500">Don't have an account?</span>

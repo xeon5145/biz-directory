@@ -9,12 +9,12 @@ class userAuth_model extends Model
 
     public function userAuth($username, $password) {
 
-        $builder = $this->db->table('authentication as A');
-        $builder->select('A.id, A.password, U.name as name');
-        $builder->join('users as U', 'A.id = U.id', 'left');
-        $builder->where('A.username', $username);
-        $builder->orWhere('A.email', $username);
-        $user = $builder->get()->getRow();
+        $authBuilder = $this->db->table('authentication as A');
+        $authBuilder->select('A.id, A.password, U.name as name');
+        $authBuilder->join('users as U', 'A.id = U.id', 'left');
+        $authBuilder->where('A.username', $username);
+        $authBuilder->orWhere('A.email', $username);
+        $user = $authBuilder->get()->getRow();
 
         if ($user) {
             if ($password == $user->password) {
@@ -36,10 +36,13 @@ class userAuth_model extends Model
     {
         $email = $data['email'];
         $password = $data['password'];
+        $name = $data['name'];
         
-        $builder = $this->db->table('authentication');
-        $builder->where('email', $email);
-        $user = $builder->get()->getRow();
+        $userBuilder = $this->db->table('users');
+        $authBuilder = $this->db->table('authentication');
+
+        $userBuilder->where('email', $email);
+        $user = $userBuilder->get()->getRow();
         
         if ($user) {
             return [
@@ -47,15 +50,24 @@ class userAuth_model extends Model
                 'message' => 'User already registered'
             ];
         } else {
-            $builder->insert([
+
+            $userBuilder->insert([
                 'email' => $email,
-                'password' => $password
+                'name' => $name,
+                'status' => 0
             ]);
 
-            
+            $user_id = $this->db->insertID();            
+
+            $authBuilder->insert([
+                'email' => $email,
+                'password' => $password,
+                'user_id' => $user_id
+            ]);
+
             return [
                 'status' => 200,
-                'message' => 'Please check your email for verification link'
+                'message' => 'Account created. Check your email for verification link.'
             ];
         }
     }

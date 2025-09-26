@@ -40,7 +40,11 @@ class UserAuthController extends BaseController
 
         $status = $this->userModel->registerAccount($_POST);
 
-        echo json_encode($status);
+        if($status['status'] == 200) {
+            // Send Email
+        }
+
+        // echo json_encode($status);
     }
 
     public function dashboard()

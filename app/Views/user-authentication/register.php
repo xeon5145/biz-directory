@@ -20,7 +20,11 @@
 <div class="flex justify-center w-full mt-40">
     <div class="card flex flex-col border border-gray-200 rounded-lg p-8 w-1/6 h-1/2">
         <h2 class="text-2xl font-bold mb-4">Create Account</h2>
-        
+    
+        <div class="mb-4">
+                <label for="name" class="block text-gray-700 font-bold mb-2">Name</label>
+                <input type="text" name="name" id="name" placeholder="Name" class="border border-gray-300 rounded-lg px-4 py-2 w-full">
+            </div>
             <div class="mb-4">
                 <label for="email" class="block text-gray-700 font-bold mb-2">Email</label>
                 <input type="email" name="email" id="email" placeholder="Email" class="border border-gray-300 rounded-lg px-4 py-2 w-full">
@@ -54,13 +58,14 @@
             let email = $("#email").val();
             let password = $("#password").val();
             let confirmPassword = $("#confirm-password").val();
+            let name = $("#name").val();
 
             if(password != confirmPassword) {
                 slideAlert("error", "Error", "Passwords do not match");
                 return;
             }
 
-            if(email.length == 0 || password.length == 0 || confirmPassword.length == 0) {
+            if(email.length == 0 || password.length == 0 || confirmPassword.length == 0 || name.length == 0) {
                 slideAlert("error", "Error", "All fields are required");
                 return;
             }
@@ -70,11 +75,12 @@
                 type: "POST",
                 data: {
                     email: email,
-                    password: password
+                    password: password,
+                    name: name
                 },
                 success: function (response) {
-                    console.log(response);
-                    // slideAlert("success", "Success", "Account created successfully");
+                    let data = JSON.parse(response);
+                    slideAlert("success", "Success", data.message);
                 },
                 error: function (response) {
                     slideAlert("error", "Error", "Failed to create account");
