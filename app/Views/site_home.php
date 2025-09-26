@@ -1,7 +1,7 @@
 <!-- Header -->
 <nav class="sticky relative top-4 flex flex-row justify-between gap-4 ml-5 mr-5">
     <div class="w-1/3 flex justify-start">
-        <p class="text-3xl self-center" title="Biz Dir">BD</p>
+        <p class="text-3xl self-center text-blue-600" title="Biz Grow">BG</p>
     </div>
 
     <div class="w-1/3 flex justify-center backdrop-blur-xs grayscale bg-slate-400/20 rounded-lg px-4 py-4">
@@ -22,38 +22,18 @@
         <!-- Hero Section -->
         <div class="text-center">
             <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight">
-                Discover Local Businesses <span class="text-blue-600">Near You</span>
+                Grow Your Businesses With <span class="text-blue-600">Biz Grow</span>
             </h1>
             <p class="mt-6 max-w-2xl mx-auto text-xl text-gray-600">
-                Connect with the best local services, restaurants, shops, and professionals in your area.
-                Supporting local businesses has never been easier.
+                Connect and enhance you business with <span class="text-blue-600">Biz Grow</span>.
+                Growing businesses has never been easier.
             </p>
             
-            <!-- Search Bar -->
-            <div class="mt-10 max-w-2xl mx-auto">
-                <div class="flex rounded-lg shadow-sm">
-                    <div class="relative flex-grow focus-within:z-10
-                        ">
-                        <input type="text" name="search" id="search" class="focus:ring-blue-500 focus:border-blue-500 block w-full rounded-l-lg pl-4 pr-12 py-4 text-base border-gray-300" placeholder="Search for businesses, services, or categories">
-                    </div>
-                    <button type="button" class="-ml-px relative inline-flex items-center px-6 py-4 border border-transparent text-sm font-medium rounded-r-lg text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-                        <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                            <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
-                        </svg>
-                        <span class="ml-2">Search</span>
-                    </button>
-                </div>
-                <p class="mt-3 text-sm text-gray-500">
-                    Popular searches: <a href="#" class="font-medium text-blue-600 hover:text-blue-500">Restaurants</a>, 
-                    <a href="#" class="font-medium text-blue-600 hover:text-blue-500">Hair Salons</a>, 
-                    <a href="#" class="font-medium text-blue-600 hover:text-blue-500">Plumbers</a>
-                </p>
-            </div>
         </div>
 
         <!-- Categories -->
         <div class="mt-20">
-            <h2 class="text-2xl font-bold text-gray-900 mb-8 text-center">Browse by Category</h2>
+            <h2 class="text-2xl font-bold text-gray-900 mb-8 text-center">Browse Tool By Category</h2>
             <div class="grid grid-cols-2 gap-6 md:grid-cols-4 lg:grid-cols-6">
                 <!-- Category Item -->
                 <a href="#" class="group bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-all duration-200 text-center">
@@ -62,7 +42,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
                     </div>
-                    <h3 class="mt-4 text-sm font-medium text-gray-900 group-hover:text-blue-600">Finance</h3>
+                    <h3 class="mt-4 text-sm font-medium text-gray-900 group-hover:text-blue-600">Payroll</h3>
                 </a>
                 <!-- More category items... -->
                 <a href="#" class="group bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-all duration-200 text-center">
@@ -71,7 +51,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                         </svg>
                     </div>
-                    <h3 class="mt-4 text-sm font-medium text-gray-900 group-hover:text-green-600">Technology</h3>
+                    <h3 class="mt-4 text-sm font-medium text-gray-900 group-hover:text-green-600">Attendance</h3>
                 </a>
                 <a href="#" class="group bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-all duration-200 text-center">
                     <div class="mx-auto h-12 w-12 text-yellow-600 group-hover:text-yellow-700">
@@ -79,7 +59,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
                     </div>
-                    <h3 class="mt-4 text-sm font-medium text-gray-900 group-hover:text-yellow-600">Travel</h3>
+                    <h3 class="mt-4 text-sm font-medium text-gray-900 group-hover:text-yellow-600">Management</h3>
                 </a>
                 <a href="#" class="group bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-all duration-200 text-center">
                     <div class="mx-auto h-12 w-12 text-purple-600 group-hover:text-purple-700">

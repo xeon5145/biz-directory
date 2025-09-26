@@ -1,7 +1,7 @@
 <!-- Header -->
 <nav class="sticky absolute top-4 flex flex-row justify-between gap-4 ml-5 mr-5">
     <div class="w-1/3 flex justify-start">
-        <p class="text-3xl self-center" title="Biz Dir">BD</p>
+        <p class="text-3xl self-center text-blue-600" title="Biz Grow">BG</p>
     </div>
 
     <div class="w-1/3 flex justify-center backdrop-blur-xs grayscale bg-slate-400/20 rounded-lg px-4 py-4">
@@ -41,6 +41,10 @@
             </div>
             <div class="flex justify-center">
                 <button type="submit" onClick="createUserAccount()" class="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-hidden focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none">Create Account</button>
+            </div>
+            <div class="mt-4">
+                <span class="text-gray-500">Already have an account?</span>
+                <a href="<?= base_url('auth') ?>" class="text-blue-600 hover:underline">Login</a>
             </div>
         
     </div>

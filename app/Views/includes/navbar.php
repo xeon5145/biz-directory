@@ -3,13 +3,13 @@
 
         <!-- Logo -->
         <div class="flex w-1/6 justify-start items-center gap-4">
-            <p class="text-3xl self-center" title="Biz Dir">BD</p>
+            <p class="text-3xl self-center" title="Biz Grow">BG</p>
         </div>
         <!-- Logo -->
 
         <!-- Search and text section -->
         <div class="flex w-3/6 justify-start items-center gap-4">
-            <p class="text-3xl self-center" title="Biz Dir"></p>
+            <p class="text-3xl self-center" title="Biz Grow">Biz Grow</p>
         </div>
         <!-- Search and text section -->
 

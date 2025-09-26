@@ -37,10 +37,9 @@ class userAuth_model extends Model
         $email = $data['email'];
         $password = $data['password'];
         
-
-        $user = $this->select('id')
-                    ->where('email', $email)
-                    ->first();
+        $builder = $this->db->table('authentication');
+        $builder->where('email', $email);
+        $user = $builder->get()->getRow();
         
         if ($user) {
             return [
@@ -48,10 +47,12 @@ class userAuth_model extends Model
                 'message' => 'User already registered'
             ];
         } else {
-            $this->save([
+            $builder->insert([
                 'email' => $email,
                 'password' => $password
             ]);
+
+            
             return [
                 'status' => 200,
                 'message' => 'Please check your email for verification link'
