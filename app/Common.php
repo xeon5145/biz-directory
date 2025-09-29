@@ -93,3 +93,26 @@ if (! function_exists('dashboardView')) {
         return $header . $layout . $footer;
     }
 }
+
+if (! function_exists('sendEmail')) {
+    function sendEmail($sendTo, $name, $subject, $body)
+    {
+        try {
+            $brevo = service('brevo');
+
+            // Option 2: Brevo Template (recommended for production)
+            $result = $brevo->send($sendTo, $name, $subject, $body);
+
+            if ($result === false) {
+                log_message('error', 'Failed to send email via Brevo to: ' . $sendTo . ' - Subject: ' . $subject);
+                return 'Failed to send email (check logs)';
+            }
+
+            log_message('info', 'Email sent successfully via Brevo to: ' . $sendTo);
+            return 'Email sent successfully!';
+        } catch (\Exception $e) {
+            log_message('error', 'Brevo service error: ' . $e->getMessage());
+            return 'Email service error: ' . $e->getMessage();
+        }
+    }
+}

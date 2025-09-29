@@ -14,3 +14,6 @@ $routes->get('/dashboard', 'UserAuthController::dashboard');
 $routes->get('/register', 'UserAuthController::register');
 $routes->post('/registerAccount', 'UserAuthController::registerAccount');
 // Authentication
+
+// Utilities / Testing
+$routes->get('/test-email', 'UserAuthController::testEmail');
