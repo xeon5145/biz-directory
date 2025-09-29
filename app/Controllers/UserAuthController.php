@@ -7,9 +7,15 @@ use \App\Models\userAuth_model;
 class UserAuthController extends BaseController
 {
     public $userModel;
+    public $brevoService;
+    
     public function __construct()
     {
         $this->userModel = new userAuth_model();
+        $this->brevoService = service('brevo');
+        
+        // Load email helper
+        helper('email');
     }
 
     public function index(): string
@@ -19,7 +25,6 @@ class UserAuthController extends BaseController
 
     public function login()
     {
-
         $username = $this->request->getPost('username');
         $password = $this->request->getPost('password');
 
@@ -31,20 +36,34 @@ class UserAuthController extends BaseController
 
     public function register(): string
     {
-
         return mainView('user-authentication/register');
     }
 
     public function registerAccount()
     {
-
+        // Uncomment when ready to use
         // $status = $this->userModel->registerAccount($_POST);
 
-        $emailstatus = sendEmail('abhisheksingh5145@gmail.com', 'Abhishek', 'Welcome to Our App!', '<h1>Hello Abhishek!</h1><p>Thanks for joining.</p>');
+        // Fixed: Correct parameter order (to, subject, htmlContent, textContent)
+        $emailStatus = $this->brevoService->sendEmail(
+            'abhisheksingh5145@gmail.com', 
+            'Welcome to Our App!', 
+            '<h1>Hello Abhishek!</h1><p>Thanks for joining our platform!</p>',
+            'Hello Abhishek! Thanks for joining our platform!' // Plain text version
+        );
 
-        var_dump($emailstatus);
+        // Or using the helper function:
+        // $emailStatus = sendEmail(
+        //     'abhisheksingh5145@gmail.com', 
+        //     'Abhishek',  // This parameter is not used in the helper, remove it
+        //     'Welcome to Our App!', 
+        //     '<h1>Hello Abhishek!</h1><p>Thanks for joining.</p>'
+        // );
+
+        var_dump($emailStatus);
+
         // if($status['status'] == 200) {
-        //     // Send Email
+        //     // Email sending logic here
         // }
 
         // echo json_encode($status);
@@ -52,26 +71,30 @@ class UserAuthController extends BaseController
 
     public function dashboard()
     {
-
         return dashboardView('admin/dashboard');
     }
 
     public function testEmail()
     {
-        $to = $this->request->getGet('to') ?? 'test@example.com';
-        $name = $this->request->getGet('name') ?? 'Test User';
+        $to = $this->request->getGet('to') ?? 'abhisheksingh5145@gmail.com';
+        $name = $this->request->getGet('name') ?? 'Abhishek';
 
-        $brevo = service('brevo');
-        $result = $brevo->send($to, $name, 'Brevo Test Email', '<h1>It works!</h1><p>This is a test email from Brevo integration.</p>');
+        // Fixed: Correct parameter order and better error handling
+        $result = $this->brevoService->sendEmail(
+            $to, 
+            'Brevo Test Email', // subject
+            "<h1>Hello {$name}!</h1><p>This is a test email from Brevo integration.</p><p>Email sent to: {$to}</p>", // HTML content
+            "Hello {$name}! This is a test email from Brevo integration. Email sent to: {$to}" // Plain text content
+        );
 
-        $error = method_exists($brevo, 'getLastError') ? $brevo->getLastError() : null;
-        $response = method_exists($brevo, 'getLastResponse') ? $brevo->getLastResponse() : null;
-
+        // Better response structure
         return $this->response->setJSON([
             'to' => $to,
-            'success' => $result !== false,
-            'error' => $error,
-            'response' => $response,
+            'name' => $name,
+            'success' => $result['success'],
+            'message' => $result['success'] ? $result['message'] : $result['error'],
+            'messageId' => $result['success'] ? ($result['messageId'] ?? null) : null,
+            'timestamp' => date('Y-m-d H:i:s')
         ]);
     }
 }

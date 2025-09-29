@@ -3,7 +3,7 @@
 namespace Config;
 
 use CodeIgniter\Config\BaseService;
-use App\Services\BrevoService;
+use App\Libraries\BrevoService;
 
 /**
  * Services Configuration file.
@@ -31,11 +31,13 @@ class Services extends BaseService
      * }
      */
 
+
     public static function brevo($getShared = true)
     {
         if ($getShared) {
             return static::getSharedInstance('brevo');
         }
+
         return new BrevoService();
     }
 }
