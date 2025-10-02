@@ -41,7 +41,6 @@ class UserAuthController extends BaseController
 
     public function registerAccount()
     {
-        // Uncomment when ready to use
         $status = $this->userModel->registerAccount($_POST);
 
         if ($status['status'] == 200) {
@@ -50,11 +49,15 @@ class UserAuthController extends BaseController
             $name = $this->request->getPost('name');
 
             // sendEmail($sendTo, $subject, $body)
+            // emailBuilder($templateName, $data)
+           $mail = emailBuilder('welcome' ,['name' => $name]);
+           if($mail['status'] == true) {
             $result = sendEmail(
                 $to,
-                'Welcome to Biz Directory', // subject
-                "<h1>Hello {$name}!</h1><p>Welcome to Biz Directory. You can now login to your account.</p><p>Email sent to: {$to}</p>" // HTML content
+                $mail['subject'],
+                $mail['body']
             );
+           }
             // Send Welcome Email
         }
 
@@ -64,21 +67,5 @@ class UserAuthController extends BaseController
     public function dashboard()
     {
         return dashboardView('admin/dashboard');
-    }
-
-    public function testEmail()
-    {
-        $to = $this->request->getGet('to') ?? 'covas86611@rograc.com';
-        $name = $this->request->getGet('name') ?? 'Abhishek';
-
-        // Fixed: Correct parameter order and better error handling
-        $result = sendEmail(
-            $to,
-            'Brevo Test Email', // subject
-            "<h1>Hello {$name}!</h1><p>This is a test email from Brevo integration.</p><p>Email sent to: {$to}</p>", // HTML content
-
-        );
-
-        echo  json_encode($result['status']);
     }
 }

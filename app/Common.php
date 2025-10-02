@@ -130,8 +130,34 @@ if (! function_exists('sendEmail')) {
     }
 }
 
-// if(! function_exists('emailBuilder')) {
-//     function emailBuilder($data) {
+if(! function_exists('emailBuilder')) {
+    function emailBuilder($templateName, $data) {
         
-//     }
-// }
+        if(!view('emails/' . $templateName, $data)) {
+            return array(
+                'status' => false,
+                'message' => 'Email template not found'
+            );
+        }
+
+        $body = '';
+        switch($templateName) {
+            case 'welcome':
+                $subject = 'Welcome to Biz Directory';
+                $body = view('emails/' . $templateName, $data);
+                break;
+                
+            case 'reset-password':
+                $subject = 'Reset Password';
+                $body = view('emails/' . $templateName, $data);               
+                break;
+
+        }
+
+        return array(
+            'status' => true,
+            'subject' => $subject,
+            'body' => $body
+        );
+    }
+}
