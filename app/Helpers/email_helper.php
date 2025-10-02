@@ -1,22 +1,22 @@
 <?php
 
-if (!function_exists('send_brevo_email')) {
-    function send_brevo_email($to, $subject, $message, $isHtml = true)
+if (!function_exists('sendEmail')) {
+    function sendEmail($to, $subject, $message, $isHtml = true)
     {
-        $brevo = service('brevo');
+        $brevoService = service('brevo');
         
         if ($isHtml) {
-            return $brevo->sendEmail($to, $subject, $message);
+            return $brevoService->sendEmail($to, $subject, $message);
         } else {
-            return $brevo->sendEmail($to, $subject, null, $message);
+            return $brevoService->sendEmail($to, $subject, null, $message);
         }
     }
 }
 
-if (!function_exists('send_brevo_template')) {
-    function send_brevo_template($to, $templateId, $params = [])
+if (!function_exists('sendTemplate')) {
+    function sendTemplate($to, $templateId, $params = [])
     {
-        $brevo = service('brevo');
-        return $brevo->sendTemplateEmail($to, $templateId, $params);
+        $brevoService = service('brevo');
+        return $brevoService->sendTemplateEmail($to, $templateId, $params);
     }
 }
